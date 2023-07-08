@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VoxPop</title>
+    <style>
+        #comment_area{
+        width: 75%;
+
+        }
+        #div1 {
+            background-color: royalblue;
+            width: 25%;
+            float: left;
+            height: 1200px
+
+        }
+        #div2 {
+            width: 75%;
+            float: right;
+            height: 1200px
+
+        }
+        #label1 {
+            color: white;
+        }
+        #label2{
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+<form action="/" method="post">
+    <div id="div1">
+        <input type="text" id="comment_area" name="comment" placeholder="Leave a Comment" required>
+    <br>
+        <br>
+        <label id="label1" for="rad1">Positive</label>
+        <input type="radio" name="category" id="rad1" value="Positive" required >
+
+        <label id="label2" for="rad2">Negative</label>
+        <input type="radio" name="category" id="rad2" value="Negative" required >
+
+    <br>
+        <br>
+        <input type ="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </div>
+</form>
+<div id="div2">
+    {%for comment in comments %}
+    <tr>
+      <td>
+          {{comment["content"]}}<br>
+            {{comment["category"]}}<br>
+          <br>
+      </td>
+    </tr>
+    {% endfor %}
+</div>
+</body>
+</html>
